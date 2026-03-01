@@ -1,0 +1,128 @@
+.anukul-app .markdown a {
+  @apply text-red-500 dark:text-red-400;
+}
+
+.anukul-app .markdown h1,
+.anukul-app .markdown h2,
+.anukul-app .markdown h3,
+.anukul-app .markdown h4 {
+  @apply font-bold relative text-c-800;
+}
+
+.anukul-app .markdown h1,
+.anukul-app .markdown h2,
+.anukul-app .markdown h3,
+.anukul-app .markdown h4 {
+  @apply mt-7;
+}
+
+.anukul-app .markdown h1::before,
+.anukul-app .markdown h2::before,
+.anukul-app .markdown h3::before,
+.anukul-app .markdown h4::before {
+  @apply absolute text-sm text-c-400 -left-7 bottom-1;
+}
+
+.anukul-app .markdown h1 {
+  @apply text-3xl;
+}
+
+.anukul-app .markdown h1::before {
+  content: "H1";
+}
+
+.anukul-app .markdown h2 {
+  @apply text-2xl;
+}
+
+.anukul-app .markdown h2::before {
+  content: "H2";
+}
+
+.anukul-app .markdown h3 {
+  @apply text-xl;
+}
+
+.anukul-app .markdown h3::before {
+  content: "H3";
+}
+
+.anukul-app .markdown h3 {
+  @apply text-xl;
+}
+
+.anukul-app .markdown h4 {
+  @apply text-lg;
+}
+
+.anukul-app .markdown h4::before {
+  content: "H4";
+}
+
+.anukul-app .markdown p {
+  @apply mt-6;
+}
+
+.anukul-app .markdown h2 + p,
+.anukul-app .markdown h3 + p,
+.anukul-app .markdown h4 + p {
+  @apply mt-4;
+}
+
+.anukul-app .markdown ul,
+.anukul-app .markdown ol {
+  @apply mt-2 pl-5;
+}
+
+.anukul-app .markdown ul {
+  @apply list-disc;
+}
+
+.anukul-app .markdown ul > li::marker {
+  @apply text-red-500 dark:text-red-400;
+}
+
+.anukul-app .markdown ol {
+  @apply list-decimal;
+}
+
+.anukul-app .markdown li p {
+  @apply m-0 mb-2;
+}
+
+.anukul-app .markdown code {
+  @apply text-sm border border-c-300 rounded py-0.5 px-1 bg-c-50;
+}
+
+.anukul-app .markdown pre {
+  @apply mt-2 text-sm;
+}
+
+.anukul-app .markdown pre code {
+  @apply text-sm bg-transparent border-none p-0;
+}
+
+.anukul-app .markdown pre div {
+  @apply border border-c-300 rounded;
+}
+
+.anukul-app .markdown .token {
+	background: transparent !important;
+}
+
+.anukul-app .markdown img {
+  @apply inline-block;
+}
+
+.anukul-app .markdown table {
+  @apply mt-4 block w-full overflow-auto;
+}
+
+.anukul-app .markdown table td,
+.anukul-app .markdown table th {
+  @apply px-3 py-2 border border-c-300;
+}
+
+.anukul-app .markdown table tr {
+  @apply border-t border-gray-300 bg-transparent;
+}
