@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6C5CE7"/>
+      <stop offset="100%" stop-color="#4834D4"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.28)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.12)"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded square background -->
+  <rect width="120" height="120" rx="26" fill="url(#bg)"/>
+  <!-- Grid of 4 project cards -->
+  <!-- Top-left -->
+  <rect x="18" y="22" width="38" height="32" rx="6" fill="url(#card)"/>
+  <rect x="24" y="28" width="18" height="3" rx="1.5" fill="rgba(255,255,255,0.7)"/>
+  <rect x="24" y="34" width="26" height="2" rx="1" fill="rgba(255,255,255,0.35)"/>
+  <rect x="24" y="39" width="20" height="2" rx="1" fill="rgba(255,255,255,0.25)"/>
+  <circle cx="46" cy="46" r="4" fill="rgba(255,255,255,0.4)"/>
+  <!-- Top-right -->
+  <rect x="64" y="22" width="38" height="32" rx="6" fill="url(#card)"/>
+  <rect x="70" y="28" width="22" height="3" rx="1.5" fill="rgba(255,255,255,0.7)"/>
+  <rect x="70" y="34" width="26" height="2" rx="1" fill="rgba(255,255,255,0.35)"/>
+  <rect x="70" y="39" width="16" height="2" rx="1" fill="rgba(255,255,255,0.25)"/>
+  <circle cx="92" cy="46" r="4" fill="rgba(255,255,255,0.4)"/>
+  <!-- Bottom-left -->
+  <rect x="18" y="62" width="38" height="32" rx="6" fill="url(#card)"/>
+  <rect x="24" y="68" width="14" height="3" rx="1.5" fill="rgba(255,255,255,0.7)"/>
+  <rect x="24" y="74" width="26" height="2" rx="1" fill="rgba(255,255,255,0.35)"/>
+  <rect x="24" y="79" width="22" height="2" rx="1" fill="rgba(255,255,255,0.25)"/>
+  <circle cx="46" cy="86" r="4" fill="rgba(255,255,255,0.4)"/>
+  <!-- Bottom-right -->
+  <rect x="64" y="62" width="38" height="32" rx="6" fill="url(#card)"/>
+  <rect x="70" y="68" width="20" height="3" rx="1.5" fill="rgba(255,255,255,0.7)"/>
+  <rect x="70" y="74" width="26" height="2" rx="1" fill="rgba(255,255,255,0.35)"/>
+  <rect x="70" y="79" width="18" height="2" rx="1" fill="rgba(255,255,255,0.25)"/>
+  <circle cx="92" cy="86" r="4" fill="rgba(255,255,255,0.4)"/>
+</svg>
