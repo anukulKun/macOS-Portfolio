@@ -1,0 +1,136 @@
+/* --------- Mobile Notification Popup --------- */
+
+.mobile-notification-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: mobileNotifFadeIn 0.3s ease;
+}
+
+.mobile-notification-card {
+  background: rgba(40, 40, 40, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  max-width: 320px;
+  width: 85vw;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-notification-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.mobile-notification-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mobile-notification-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 0.75rem;
+}
+
+.mobile-notification-text {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  margin: 0 0 0.5rem;
+}
+
+.mobile-notification-subtext {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.4;
+  margin: 0 0 1.25rem;
+}
+
+.mobile-notification-btn {
+  background: #0a84ff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.65rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.15s ease;
+}
+
+.mobile-notification-btn:active {
+  background: #0070e0;
+}
+
+@keyframes mobileNotifFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* --------- Mobile Window Fullscreen --------- */
+
+@media (max-width: 768px) {
+  /* Auto-maximize windows on mobile */
+  .window-bound {
+    width: 100% !important;
+    height: 100% !important;
+    left: 0 !important;
+  }
+
+  /* Traffic lights easier to tap */
+  .traffic-lights {
+    gap: 0.35rem;
+    padding-left: 0.5rem;
+  }
+
+  .window-btn {
+    width: 14px !important;
+    height: 14px !important;
+    min-width: 14px;
+    min-height: 14px;
+  }
+
+  /* Dock smaller on mobile */
+  .dock ul {
+    max-width: 90vw;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .dock ul li img {
+    max-width: 40px !important;
+    max-height: 40px !important;
+  }
+
+  /* Spotlight full-width on mobile */
+  .spotlight {
+    width: calc(100% - 1rem) !important;
+    margin-left: 0.5rem !important;
+    left: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .dock ul li img {
+    max-width: 34px !important;
+    max-height: 34px !important;
+  }
+}
