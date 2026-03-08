@@ -2,7 +2,7 @@
 
 > Anukul's portfolio website simulating macOS's GUI — [anukul.xyz](https://anukul.xyz)
 
-![macOS Portfolio](./public/screenshots/light.png)
+![macOS Portfolio](./public/screenshots/1221.png)
 
 
 ## Tech Stack
