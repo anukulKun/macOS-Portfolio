@@ -10,7 +10,7 @@ import "~/styles/irc-chat.css";
 const GUN_PEERS = import.meta.env.DEV
   ? ["http://localhost:8765/gun"]
   : ["https://macos-relay.onrender.com/gun"];
-const CHANNEL = "ankush-irc-general";
+const CHANNEL = "anukulKul-irc-general";
 const MAX_MESSAGES = 200;
 const PRESENCE_INTERVAL = 5000;
 const PRESENCE_TIMEOUT = 15000;
@@ -25,7 +25,10 @@ const TEXT_REPLACEMENTS: Record<string, string> = {
 };
 
 const COMMANDS: Record<string, { solo: string; target: string }> = {
-  slap: { solo: "slaps around a bit with a large trout 🐟", target: "slaps {target} around with a large trout 🐟" },
+  slap: {
+    solo: "slaps around a bit with a large trout 🐟",
+    target: "slaps {target} around with a large trout 🐟"
+  },
   hug: { solo: "hugs everyone 🤗", target: "hugs {target} 🤗" },
   poke: { solo: "pokes the void 👉", target: "pokes {target} 👉" },
   wave: { solo: "waves at everyone 👋", target: "waves at {target} 👋" },
@@ -184,7 +187,9 @@ export default function IRCChat() {
     intervalsRef.current.forEach(clearInterval);
     intervalsRef.current = [];
     if (gunRef.current) {
-      try { gunRef.current.off(); } catch (_) {}
+      try {
+        gunRef.current.off();
+      } catch (_) {}
       gunRef.current = null;
     }
     chatRef.current = null;
@@ -213,7 +218,9 @@ export default function IRCChat() {
         if (!m.text || !m.time) return;
         if (Date.now() - m.time > MAX_MESSAGE_AGE) return;
 
-        const isJoinLeave = m.type === "system" && (m.text.includes("entered the room") || m.text.includes("left the room"));
+        const isJoinLeave =
+          m.type === "system" &&
+          (m.text.includes("entered the room") || m.text.includes("left the room"));
         if (isJoinLeave && m.time < joinTimeRef.current) return;
 
         seenKeys.current.add(key);
@@ -346,7 +353,11 @@ export default function IRCChat() {
         key: "help-" + Date.now(),
         nick: "system",
         uuid: "",
-        text: `**Commands:** ${Object.keys(COMMANDS).map((c) => "/" + c).join(", ")} | **Shortcuts:** ${Object.keys(TEXT_REPLACEMENTS).map((c) => "/" + c).join(", ")}`,
+        text: `**Commands:** ${Object.keys(COMMANDS)
+          .map((c) => "/" + c)
+          .join(", ")} | **Shortcuts:** ${Object.keys(TEXT_REPLACEMENTS)
+          .map((c) => "/" + c)
+          .join(", ")}`,
         time: Date.now(),
         type: "system"
       };
@@ -483,9 +494,7 @@ export default function IRCChat() {
             return (
               <div key={msg.key} className={cls}>
                 {!isNarrow && (
-                  <span className="irc-msg-time">
-                    {formatTime(msg.time)}{" "}
-                  </span>
+                  <span className="irc-msg-time">{formatTime(msg.time)} </span>
                 )}
                 <span className="irc-msg-nick">
                   <span className="irc-msg-pipe">| </span>
@@ -509,14 +518,20 @@ export default function IRCChat() {
               <div
                 key={n}
                 className="irc-user-item"
-                onClick={() => { if (n !== nick) { insertMention(n); setShowUsers(false); } }}
+                onClick={() => {
+                  if (n !== nick) {
+                    insertMention(n);
+                    setShowUsers(false);
+                  }
+                }}
                 style={{
                   color: onlineUsers[n] ? uuidToColor(onlineUsers[n].uuid) : "#aaa",
                   cursor: n !== nick ? "pointer" : "default",
                   fontWeight: n === nick ? 700 : 400
                 }}
               >
-                {n}{n === nick ? " (you)" : ""}
+                {n}
+                {n === nick ? " (you)" : ""}
               </div>
             ))}
           </div>
@@ -536,8 +551,12 @@ export default function IRCChat() {
           type="text"
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
-          onKeyDown={(e) => { if (e.key === "Enter") sendMessage(); }}
-          placeholder={isNarrow ? "/help for cmds" : "Type a message... (/help for commands)"}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") sendMessage();
+          }}
+          placeholder={
+            isNarrow ? "/help for cmds" : "Type a message... (/help for commands)"
+          }
         />
         <button className="irc-send-btn" onClick={sendMessage}>
           Send

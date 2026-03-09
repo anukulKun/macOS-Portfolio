@@ -32,7 +32,7 @@ const apps: AppsData[] = [
     desktop: true,
     width: 900,
     height: 550,
-    img: "img/icons/safari.png",
+    img: "img/icons/irc-chat.svg",
     content: <IRCChat />
   },
   {
