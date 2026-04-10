@@ -89,19 +89,13 @@ const websites: WebsitesData = {
         img: "img/sites/hacker.svg",
         link: "https://news.ycombinator.com/"
       },
- 
+
       {
         id: "steam",
         title: "Steam",
         img: "img/sites/steam.svg",
         link: "https://store.steampowered.com/"
-      },
-      {
-        id: "nazo",
-        title: "Nazo",
-        link: "https://nazo.one-story.cn"
-      },
-
+      }
     ]
   }
 };

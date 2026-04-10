@@ -1,6 +1,6 @@
 export interface SiteData {
   id: string;
-  title: string;
+  apwetitle: string;
   img?: string;
   link: string;
   inner?: boolean;
