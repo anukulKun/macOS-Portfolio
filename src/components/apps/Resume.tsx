@@ -5,9 +5,11 @@ export default function Resume() {
     <div className="h-full w-full bg-gray-100 dark:bg-gray-800 flex flex-col">
       <div className="flex items-center gap-2 px-4 py-2 bg-gray-200 dark:bg-gray-700 border-b border-gray-300 dark:border-gray-600">
         <span className="i-mdi:file-pdf-box text-red-500 text-xl" />
-        <span className="text-sm font-medium text-gray-700 dark:text-gray-200">Resume - Anukul</span>
+        <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
+          Resume - Anukul
+        </span>
         <a
-          href="https://drive.google.com/file/d/14C8Jyg0v6x-DxcH4kMBwfEN6zRVnfZGf/view"
+          href="https://drive.google.com/file/d/1vj43UgFeW0Bd8tk3yDaeNal0guAddnBh/view"
           target="_blank"
           rel="noopener noreferrer"
           className="ml-auto text-xs text-blue-500 hover:underline flex items-center gap-1"
@@ -18,7 +20,7 @@ export default function Resume() {
       </div>
       <div className="flex-1">
         <iframe
-          src="https://drive.google.com/file/d/14C8Jyg0v6x-DxcH4kMBwfEN6zRVnfZGf/preview"
+          src="https://drive.google.com/file/d/1vj43UgFeW0Bd8tk3yDaeNal0guAddnBh/preview"
           className="w-full h-full border-none"
           title="Resume"
           allow="autoplay"
