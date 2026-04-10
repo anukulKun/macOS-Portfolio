@@ -1,0 +1,29 @@
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_4317_2405)">
+    <path d="M15.75 1.29904C17.1423 0.49519 18.8577 0.495191 20.25 1.29904L31.3385 7.70096C32.7308 8.50481 33.5885 9.99038 33.5885 11.5981V24.4019C33.5885 26.0096 32.7308 27.4952 31.3385 28.299L20.25 34.701C18.8577 35.5048 17.1423 35.5048 15.75 34.701L4.66154 28.299C3.26924 27.4952 2.41154 26.0096 2.41154 24.4019V11.5981C2.41154 9.99038 3.26924 8.50481 4.66154 7.70096L15.75 1.29904Z" fill="url(#paint0_linear_4317_2405)"/>
+    <path d="M22.9219 22.9219L27.8438 22.2188" stroke="white" stroke-width="0.45"/>
+    <path d="M22.9219 22.9219L21.5156 27.1406" stroke="white" stroke-width="0.45"/>
+    <path d="M13.7812 18L18 13.7812" stroke="white" stroke-width="0.45"/>
+    <path d="M13.7812 9.5625L18 13.7812" stroke="white" stroke-width="0.45"/>
+    <path d="M8.85938 14.4844L13.7812 9.5625" stroke="white" stroke-width="0.45"/>
+    <circle cx="18" cy="13.7812" r="2.10938" fill="white" stroke="white" stroke-width="1.40625"/>
+    <circle cx="22.9219" cy="22.9219" r="1.40625" fill="white" stroke="white" stroke-width="1.40625"/>
+    <circle cx="27.8438" cy="22.2188" r="0.703125" fill="white" stroke="white" stroke-width="1.40625"/>
+    <circle cx="18" cy="25.0312" r="0.703125" fill="white" stroke="white" stroke-width="1.40625"/>
+    <circle cx="21.5156" cy="27.1406" r="0.703125" fill="white"/>
+    <circle cx="13.7812" cy="18" r="0.703125" fill="white" stroke="white" stroke-width="1.40625"/>
+    <circle cx="13.7812" cy="9.5625" r="0.703125" fill="white" stroke="white" stroke-width="1.40625"/>
+    <circle cx="8.85938" cy="14.4844" r="1.40625" fill="white" stroke="white" stroke-width="1.40625"/>
+    <path d="M18 25.0312L22.9219 22.9219" stroke="white" stroke-width="0.45"/>
+    <path d="M18 13.7812L22.9219 22.9219" stroke="white" stroke-width="0.45"/>
+  </g>
+  <defs>
+    <linearGradient id="paint0_linear_4317_2405" x1="18" y1="0" x2="18" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <clipPath id="clip0_4317_2405">
+      <rect width="36" height="36" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
