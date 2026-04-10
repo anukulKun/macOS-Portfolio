@@ -2,8 +2,10 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 
 import Desktop from "~/pages/Desktop";
+import MobileOS from "~/pages/MobileOS";
 import Login from "~/pages/Login";
 import Boot from "~/pages/Boot";
+import { useMobileDetection } from "~/components/MobileView";
 
 import "@unocss/reset/tailwind.css";
 import "uno.css";
@@ -15,6 +17,8 @@ export default function App() {
   const [booting, setBooting] = useState<boolean>(false);
   const [restart, setRestart] = useState<boolean>(false);
   const [sleep, setSleep] = useState<boolean>(false);
+
+  const isMobile = useMobileDetection();
 
   const shutMac = (e: React.MouseEvent): void => {
     e.stopPropagation();
@@ -43,6 +47,17 @@ export default function App() {
   if (booting) {
     return <Boot restart={restart} sleep={sleep} setBooting={setBooting} />;
   } else if (login) {
+    if (isMobile) {
+      return (
+        <MobileOS
+          setLogin={setLogin}
+          shutMac={shutMac}
+          sleepMac={sleepMac}
+          restartMac={restartMac}
+        />
+      );
+    }
+
     return (
       <Desktop
         setLogin={setLogin}
