@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useStore } from "~/stores";
 import { websites, wallpapers } from "~/configs";
 import { checkURL } from "~/utils";
 import type { SiteSectionData, SiteData } from "~/types";
@@ -22,38 +23,45 @@ interface NavSectionProps extends NavProps {
 }
 
 const NavSection = ({ width, section, setGoURL }: NavSectionProps) => {
-  const grid = width < 640 ? "grid-cols-4" : "grid-cols-9";
+  const grid = "grid-cols-[repeat(auto-fit,minmax(80px,1fr))]";
 
   return (
-    <div className="mx-auto w-full max-w-screen-md" p="t-8 x-4">
-      <div className="font-medium ml-2" text="xl sm:2xl">
-        {section.title}
-      </div>
-      <div className={`mt-3 grid grid-flow-row ${grid}`}>
+    <div className="mx-auto w-full max-w-screen-md px-4 pt-6 snap-start">
+      <div className="font-medium ml-2 text-xl sm:text-2xl">{section.title}</div>
+
+      {/* FIXED GRID */}
+      <div className={`mt-3 grid ${grid} gap-4`}>
         {section.sites.map((site: SiteData) => (
-          <div key={`safari-nav-${site.id}`} className="h-28 flex flex-col">
-            <div className="size-16 mx-auto rounded-md overflow-hidden bg-white">
+          <div
+            key={`safari-nav-${site.id}`}
+            className="flex flex-col items-center gap-2 py-2"
+          >
+            {/* ICON (FIXED BACKGROUND ISSUE HERE) */}
+            <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center rounded-xl overflow-hidden bg-transparent border border-gray-300/50 dark:border-gray-700/50 shadow-none">
               {site.img ? (
                 <img
                   src={site.img}
                   alt={site.title}
                   title={site.title}
+                  className="w-full h-full object-contain p-1 bg-transparent"
                   onClick={
                     site.inner ? () => setGoURL(site.link) : () => window.open(site.link)
                   }
                 />
               ) : (
                 <div
-                  className="size-full flex-center cursor-default text-black"
+                  className="w-full h-full flex items-center justify-center text-black"
                   onClick={
                     site.inner ? () => setGoURL(site.link) : () => window.open(site.link)
                   }
                 >
-                  <span text-lg>{site.title}</span>
+                  <span className="text-sm">{site.title}</span>
                 </div>
               )}
             </div>
-            <span m="t-2 x-auto" text-sm>
+
+            {/* TEXT */}
+            <span className="text-xs text-center text-gray-700 dark:text-gray-300">
               {site.title}
             </span>
           </div>
@@ -68,17 +76,18 @@ const numTracker = Math.floor(Math.random() * 99 + 1);
 const NavPage = ({ width, setGoURL }: NavProps) => {
   const dark = useStore((state) => state.dark);
 
-  const grid = width < 640 ? "grid-cols-4" : "grid-cols-8";
-  const span = width < 640 ? "col-span-3" : "col-span-7";
+  const grid = width < 640 ? "grid-cols-1" : "grid-cols-8";
+  const textSpan = width < 640 ? "col-span-1" : "col-span-7";
 
   return (
     <div
-      className="w-full safari-content overflow-y-scroll bg-center bg-cover text-c-black"
+      className="w-full safari-content overflow-y-auto snap-y snap-mandatory scroll-smooth bg-center bg-cover text-c-black"
       style={{
-        backgroundImage: `url(${dark ? wallpapers.night : wallpapers.day})`
+        backgroundImage: `url(${dark ? wallpapers.night : wallpapers.day})`,
+        WebkitOverflowScrolling: "touch"
       }}
     >
-      <div className="w-full min-h-full pt-8 bg-c-100/80 backdrop-blur-2xl">
+      <div className="w-full min-h-full pt-8 bg-c-100/80 backdrop-blur-2xl space-y-6">
         {/* Favorites */}
         <NavSection section={websites.favorites} setGoURL={setGoURL} width={width} />
 
@@ -86,20 +95,19 @@ const NavPage = ({ width, setGoURL }: NavProps) => {
         <NavSection section={websites.freq} setGoURL={setGoURL} width={width} />
 
         {/* Privacy Report */}
-        <div className="mx-auto w-full max-w-screen-md" p="t-8 x-4 b-16">
-          <div font="medium" text="xl sm:2xl">
-            Privacy Report
-          </div>
+        <div className="mx-auto w-full max-w-screen-md px-4 pb-16 snap-start">
+          <div className="font-medium text-xl sm:text-2xl">Privacy Report</div>
           <div
-            className={`h-16 w-full mt-4 grid ${grid} shadow-md rounded-xl text-sm`}
-            bg="gray-50/70 dark:gray-600/50"
+            className={`w-full mt-4 grid ${grid} gap-3 shadow-md rounded-xl p-3 text-sm bg-white/80 dark:bg-gray-900/90`}
           >
-            <div className="col-start-1 col-span-1 flex-center space-x-2">
+            <div className="flex items-center space-x-2">
               <span className="i-fa-solid:shield-alt text-2xl" />
-              <span className="text-xl">{numTracker}</span>
+              <span className="text-xl font-semibold">{numTracker}</span>
             </div>
-            <div className={`col-start-2 ${span} hstack px-2`}>
-              In the last seven days, Safari has prevent {numTracker} tracker from
+            <div
+              className={`${textSpan} text-sm leading-5 text-gray-800 dark:text-gray-200`}
+            >
+              In the last seven days, Safari has prevented {numTracker} trackers from
               profiling you.
             </div>
           </div>
@@ -114,9 +122,10 @@ const NoInternetPage = () => {
 
   return (
     <div
-      className="w-full safari-content bg-blue-50 overflow-y-scroll bg-center bg-cover"
+      className="w-full safari-content overflow-y-auto snap-y snap-mandatory scroll-smooth bg-blue-50 bg-center bg-cover"
       style={{
-        backgroundImage: `url(${dark ? wallpapers.night : wallpapers.day})`
+        backgroundImage: `url(${dark ? wallpapers.night : wallpapers.day})`,
+        WebkitOverflowScrolling: "touch"
       }}
     >
       <div className="w-full h-full pb-10 backdrop-blur-2xl flex-center text-c-600 bg-c-100/80">
@@ -138,14 +147,35 @@ const Safari = ({ width }: SafariProps) => {
     currentURL: ""
   });
 
-  const setGoURL = (url: string) => {
-    const isValid = checkURL(url);
+  const setGoURL = (input: string) => {
+    let url = input.trim();
 
+    if (url === "") {
+      setState({ goURL: "", currentURL: "" });
+      return;
+    }
+
+    const isValid = checkURL(url);
     if (isValid) {
-      if (url.substring(0, 7) !== "http://" && url.substring(0, 8) !== "https://")
-        url = `https://${url}`;
-    } else if (url !== "") {
-      url = `https://www.google.com/search?q=${url}`;
+      if (!/^https?:\/\//i.test(url)) url = `https://${url}`;
+    } else {
+      url = `https://www.google.com/search?q=${encodeURIComponent(url)}`;
+    }
+
+    const canEmbed = (() => {
+      try {
+        const parsed = new URL(url);
+        const host = window.location.host;
+        return parsed.host === host;
+      } catch {
+        return false;
+      }
+    })();
+
+    if (!canEmbed) {
+      window.open(url, "_blank", "noopener,noreferrer");
+      setState({ goURL: "", currentURL: url });
+      return;
     }
 
     setState({
