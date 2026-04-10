@@ -36,7 +36,7 @@ export default function MobileOS() {
           backgroundImage: `url(${dark ? wallpapers.night : wallpapers.day})`,
           filter: `brightness(${Number(brightness) * 0.7 + 50}%) ${ccOpen ? "blur(12px)" : "blur(0px)"}`,
           transform: ccOpen ? "scale(0.96)" : "scale(1)",
-          borderRadius: ccOpen ? "40px" : "0px",
+          borderRadius: ccOpen ? 40 : 0,
           transition: "all 0.4s cubic-bezier(0.22, 1, 0.36, 1)"
         }}
       />
@@ -47,7 +47,7 @@ export default function MobileOS() {
         style={{
           filter: ccOpen ? "blur(12px)" : "none",
           transform: ccOpen ? "scale(0.96)" : "scale(1)",
-          borderRadius: ccOpen ? "40px" : "0px",
+          borderRadius: ccOpen ? 40 : 0,
           transition: "all 0.4s cubic-bezier(0.22, 1, 0.36, 1)"
         }}
       >
