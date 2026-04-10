@@ -16,7 +16,7 @@ const launchpadApps: LaunchpadData[] = [
   {
     id: "projects",
     title: "Projects",
-    img: "img/icons/projects.svg",
+    img: "img/icons/projects.png",
     appId: "projects"
   },
   {
