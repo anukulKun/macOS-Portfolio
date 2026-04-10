@@ -1,5 +1,6 @@
 import { appBarHeight } from "~/utils";
 import type { AppsData } from "~/types";
+import TimelineIcon from "~/components/icons/TimelineIcon";
 
 const apps: AppsData[] = [
   {
@@ -18,12 +19,24 @@ const apps: AppsData[] = [
     content: <Resume />
   },
   {
+    id: "timeline",
+    title: "Timeline",
+    desktop: true,
+    width: 760,
+    height: 620,
+    minWidth: 360,
+    minHeight: 420,
+    img: "img/icons/safari.png",
+    icon: TimelineIcon,
+    content: <ExperienceTimeline />
+  },
+  {
     id: "projects",
     title: "Projects",
     desktop: true,
     width: 900,
     height: 550,
-    img: "img/icons/projects.svg",
+    img: "img/icons/projects.png",
     content: <Projects />
   },
   {
@@ -59,9 +72,10 @@ const apps: AppsData[] = [
     id: "safari",
     title: "Safari",
     desktop: true,
-    width: 1024,
-    minWidth: 375,
-    minHeight: 200,
+    width: 840,
+    height: 620,
+    minWidth: 380,
+    minHeight: 360,
     x: -20,
     img: "img/icons/safari.png",
     content: <Safari />

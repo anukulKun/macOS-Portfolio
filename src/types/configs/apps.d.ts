@@ -3,6 +3,7 @@ export interface AppsData {
   title: string;
   desktop: boolean;
   img: string;
+  icon?: React.ComponentType<{ className?: string }>;
   show?: boolean;
   width?: number;
   height?: number;
