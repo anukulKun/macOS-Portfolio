@@ -61,6 +61,7 @@ interface TopBarState {
   showControlCenter: boolean;
   showWifiMenu: boolean;
   showAppleMenu: boolean;
+  showMobileMenu: boolean;
 }
 
 const TopBar = (props: TopBarProps) => {
@@ -73,7 +74,8 @@ const TopBar = (props: TopBarProps) => {
     date: new Date(),
     showControlCenter: false,
     showWifiMenu: false,
-    showAppleMenu: false
+    showAppleMenu: false,
+    showMobileMenu: false
   });
 
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
@@ -140,6 +142,13 @@ const TopBar = (props: TopBarProps) => {
     });
   };
 
+  const toggleMobileMenu = (): void => {
+    setState({
+      ...state,
+      showMobileMenu: !state.showMobileMenu
+    });
+  };
+
   const logout = (): void => {
     controls.pause();
     props.setLogin(false);
@@ -198,11 +207,11 @@ const TopBar = (props: TopBarProps) => {
       )}
 
       <div className="hstack flex-row justify-end space-x-2">
-        <TopBarItem hideOnMobile={true}>
+        <TopBarItem className="hidden sm:inline-flex">
           <Battery />
         </TopBarItem>
         <TopBarItem
-          hideOnMobile={true}
+          className="hidden sm:inline-flex"
           forceHover={state.showWifiMenu}
           onClick={toggleWifiMenu}
           ref={wifiBtnRef}
@@ -223,6 +232,9 @@ const TopBar = (props: TopBarProps) => {
         >
           <CCMIcon size={16} />
         </TopBarItem>
+        <TopBarItem className="sm:hidden" onClick={toggleMobileMenu}>
+          <span className="i-heroicons:bars-3-20-solid text-[17px]" />
+        </TopBarItem>
 
         {/* Open this when clicking on Wifi button */}
         {state.showWifiMenu && (
@@ -242,9 +254,42 @@ const TopBar = (props: TopBarProps) => {
         )}
 
         <TopBarItem>
-          <span>{format(state.date, "eee MMM d")}</span>
           <span>{format(state.date, "h:mm aa")}</span>
         </TopBarItem>
+
+        {state.showMobileMenu && (
+          <div className="absolute top-9 right-2 w-[220px] rounded-lg border border-white/20 bg-black/60 backdrop-blur-xl p-2 flex flex-col gap-1 sm:hidden">
+            <button
+              className="hstack justify-between rounded px-2 py-1.5 text-left text-white/95 hover:bg-white/15"
+              onClick={toggleWifiMenu}
+            >
+              <span>Wi-Fi</span>
+              <span
+                className={
+                  wifi ? "i-material-symbols:wifi" : "i-material-symbols:wifi-off"
+                }
+              />
+            </button>
+            <button
+              className="hstack justify-between rounded px-2 py-1.5 text-left text-white/95 hover:bg-white/15"
+              onClick={props.toggleSpotlight}
+            >
+              <span>Search</span>
+              <span className="i-bx:search" />
+            </button>
+            <button
+              className="hstack justify-between rounded px-2 py-1.5 text-left text-white/95 hover:bg-white/15"
+              onClick={toggleControlCenter}
+            >
+              <span>Control Center</span>
+              <CCMIcon size={14} />
+            </button>
+            <div className="hstack justify-between rounded px-2 py-1.5 text-white/80">
+              <span>Time</span>
+              <span>{format(state.date, "h:mm aa")}</span>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
